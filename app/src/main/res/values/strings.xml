@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Pastiche</string>
+    <string name="error_message">Sorry, the model cannot be loaded. Please restart the app.</string>
+    <string name="content_image_description">Content Image</string>
+    <string name="styled_image_description">Styled Image</string>
+    <string name="app_logo_description">Pastiche Logo</string>
+
+    <string name="style_button_text">Set Style</string>
+    <string name="transfer_button_text">Style Transfer</string>
+    <string name="style_transfer_instructions_style">Set Your Style!</string>
+    <string name="style_transfer_instructions_transfer">Hit Style Transfer!</string>
+    <string name="style_transfer_instructions_again">Try again with another style!</string>
+
+    <string name="camera_button_text">Camera</string>
+    <string name="image_picker_button_text">Gallery</string>
+
+    <string name="image_picker_title">Pick an Image to Edit</string>
+    <string name="pick_image_button_text">Choose Image</string>
+    <string name="crop_button_text">Continue</string>
+    <string name="selected_image_description">Selected Image</string>
+
+</resources>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "8403412884",
+    "firebase_url": "https://style-transfer-e6e1e.firebaseio.com",
+    "project_id": "style-transfer-e6e1e",
+    "storage_bucket": "style-transfer-e6e1e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8403412884:android:e1f41f25f2dc1371385181",
+        "android_client_info": {
+          "package_name": "com.example.styletransfer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "8403412884-0mjdtmtf4f5pi7vpgcm10fp1mjbkcuej.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.styletransfer",
+            "certificate_hash": "4b9ad6fd95073717fcb7fb53c36eb079c198cf1d"
+          }
+        },
+        {
+          "client_id": "8403412884-epqqv63b3h9c9nrneg0nssfkkk9fsrs5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA800QgeWHANdzB1e0xc3t5NZKSA6DlOOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "8403412884-epqqv63b3h9c9nrneg0nssfkkk9fsrs5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

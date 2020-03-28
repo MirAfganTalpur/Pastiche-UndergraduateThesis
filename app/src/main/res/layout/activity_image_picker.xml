@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_dark"
+    tools:context=".ImagePicker">
+
+    <Button
+        android:id="@+id/pickImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="13dp"
+        android:onClick="openGallery"
+        android:text="@string/pick_image_button_text"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cropButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/cropButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="65dp"
+        android:enabled="false"
+        android:onClick="toStyleTransfer"
+        android:text="@string/crop_button_text"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/pickImageButton" />
+
+    <ImageView
+        android:id="@+id/selectedImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="43dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/selected_image_description"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/pickImageButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/screen_background_dark_transparent" />
+
+    <TextView
+        android:id="@+id/styleTransferInstructions"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="93dp"
+        android:shadowColor="@color/text_shadow"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="0"
+        android:text="@string/image_picker_title"
+        android:textColor="@color/light_font"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

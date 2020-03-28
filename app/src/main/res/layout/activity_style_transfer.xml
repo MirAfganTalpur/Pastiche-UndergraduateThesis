@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_dark"
+    tools:context=".StyleTransfer">
+
+    <Button
+        android:id="@+id/style_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginBottom="12dp"
+        android:onClick="setStyle"
+        android:text="@string/style_button_text"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/transfer_button"
+        app:layout_constraintEnd_toEndOf="@+id/transfer_button"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/transfer_button" />
+
+    <Button
+        android:id="@+id/transfer_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="63dp"
+        android:enabled="false"
+        android:onClick="runTransferInference"
+        android:text="@string/transfer_button_text"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/contentImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="44dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/content_image_description"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/style_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/screen_background_dark_transparent" />
+
+    <ImageView
+        android:id="@+id/styledImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:adjustViewBounds="true"
+        android:scaleX="-1"
+        android:contentDescription="@string/styled_image_description"
+        android:scaleType="fitCenter"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/contentImage"
+        app:srcCompat="@android:drawable/screen_background_dark_transparent" />
+
+    <TextView
+        android:id="@+id/styleTransferInstructions"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="93dp"
+        android:shadowColor="@color/text_shadow"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="0"
+        android:text="@string/style_transfer_instructions_style"
+        android:textColor="@color/light_font"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

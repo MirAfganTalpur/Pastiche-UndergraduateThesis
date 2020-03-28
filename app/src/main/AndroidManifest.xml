@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.pastiche">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/pastiche_icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/pastiche_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:ignore="LockedOrientationActivity"
+        >
+        <activity android:name="com.example.pastiche.StyleTransfer"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name="com.example.pastiche.ImagePicker" />
+        <activity android:name="com.example.pastiche.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat"/>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.pastiche"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+</manifest>
