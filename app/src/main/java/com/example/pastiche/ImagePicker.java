@@ -24,10 +24,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ImagePicker extends AppCompatActivity {
-
     ImageView selectedImage;
     Button pickImageButton;
-    Button cropButton;
+    Button continueButton;
     private static final int PICK_IMAGE = 1;
     public Uri imageUri;
     public Uri resultUri;
@@ -41,7 +40,7 @@ public class ImagePicker extends AppCompatActivity {
 
         selectedImage = findViewById(R.id.selectedImage);
         pickImageButton = findViewById(R.id.pickImageButton);
-        cropButton = findViewById(R.id.cropButton);
+        continueButton = findViewById(R.id.continueButton);
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -50,6 +49,7 @@ public class ImagePicker extends AppCompatActivity {
     }
 
     public void toStyleTransfer(View view) {
+        // go to style transfer activity with bitmap ready
         Intent intent = new Intent(ImagePicker.this, StyleTransfer.class);
         intent.putExtra("bitmapPath", bitmapPath);
         ImagePicker.this.startActivity(intent);
@@ -64,9 +64,11 @@ public class ImagePicker extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == RESULT_OK && requestCode == PICK_IMAGE) {
+        // if image is selected from gallery, send to cropper
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK) {
             imageUri = data.getData();
             imageCrop(imageUri);
+            // once cropped, save bitmap, allow user to continue to style transfer
         } else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             resultUri = result.getUri();
@@ -76,13 +78,15 @@ public class ImagePicker extends AppCompatActivity {
                         bitmap, 600, 600, false);
                 saveBitmap(bitmap);
                 selectedImage.setImageURI(resultUri);
-                cropButton.setEnabled(true);
+                continueButton.setEnabled(true);
             } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
 
     private void imageCrop(Uri sourceUri) {
+        // only allow square crops
         CropImage.activity(sourceUri)
                 .setGuidelines(CropImageView.Guidelines.ON)
                 .setAspectRatio(1, 1)
@@ -90,7 +94,8 @@ public class ImagePicker extends AppCompatActivity {
                 .start(this);
     }
 
-    public String saveBitmap(Bitmap bitmap) throws IOException{
+    public String saveBitmap(Bitmap bitmap) throws IOException {
+        // save bitmap
         OutputStream fOut = null;
 
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());

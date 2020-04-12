@@ -38,6 +38,21 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
+        android:id="@+id/styledImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/styled_image_description"
+        android:scaleType="fitCenter"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/canvasView"
+        app:srcCompat="@android:drawable/screen_background_dark_transparent" />
+
+    <ImageView
         android:id="@+id/contentImage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -53,25 +68,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/screen_background_dark_transparent" />
 
-    <ImageView
-        android:id="@+id/styledImage"
+    <com.example.pastiche.CanvasView
+        android:id="@+id/canvasView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:adjustViewBounds="true"
-        android:scaleX="-1"
-        android:contentDescription="@string/styled_image_description"
-        android:scaleType="fitCenter"
-        android:visibility="invisible"
+        android:layout_height="0dp"
+        android:paddingHorizontal="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/contentImage"
         app:layout_constraintTop_toTopOf="@+id/contentImage"
-        app:srcCompat="@android:drawable/screen_background_dark_transparent" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/styleTransferInstructions"
-        android:layout_width="409dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="93dp"
@@ -85,5 +97,31 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="clearCanvas"
+        android:text="@string/clear_button_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/invertSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:checked="false"
+        android:text="@string/invert_switch"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contentImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

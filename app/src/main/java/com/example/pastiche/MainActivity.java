@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         appLogo = findViewById(R.id.appLogo);
         constraintLayout = findViewById(R.id.constraint_layout);
 
+        // animated gradient background
         animateGradients = (AnimationDrawable) constraintLayout.getBackground();
         animateGradients.setEnterFadeDuration(2000);
         animateGradients.setExitFadeDuration(4000);
@@ -67,12 +68,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void dispatchTakePictureIntent() {
+        // take picture with camera
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             File photoFile = null;
             try {
                 photoFile = createImageFile();
-            } catch (IOException ex) {
+            } catch (IOException e) {
+                e.printStackTrace();
             }
             if (photoFile != null) {
                 Uri photoURI = FileProvider.getUriForFile(this,
@@ -85,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public String saveBitmap(Bitmap bitmap) throws IOException{
+    public String saveBitmap(Bitmap bitmap) throws IOException {
+        // save bitmap for cropping
         OutputStream fOut = null;
 
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -120,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         return image;
     }
 
-    private void imageCrop(Uri sourceUri){
+    private void imageCrop(Uri sourceUri) {
         CropImage.activity(sourceUri)
                 .setGuidelines(CropImageView.Guidelines.ON)
                 .setAspectRatio(1, 1)
@@ -130,7 +134,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
+        // if picture returned from camera, send to cropper
+        if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
             Uri uri = Uri.parse("file://" + currentPhotoPath);
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
@@ -138,9 +143,10 @@ public class MainActivity extends AppCompatActivity {
                 bitmap.recycle();
                 imageCrop(Uri.parse(bitmapPath));
             } catch (IOException e) {
-                System.out.println(e);
+                e.printStackTrace();
             }
             imageCrop(uri);
+            // if pictured returned from cropper, resize and send to style transfer activity
         } else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             Uri resultUri = result.getUri();
