@@ -16,5 +16,5 @@ Mir Afgan Talpur \
 Supervisor: Dr. Faisal Qureshi
 
 ## Additional Credits
-Style Transfer Networks: https://www.tensorflow.org/lite
+Style Transfer Networks: https://www.tensorflow.org/lite \
 Image Cropper: https://github.com/ArthurHub/Android-Image-Cropper
