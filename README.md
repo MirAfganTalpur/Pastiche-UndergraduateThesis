@@ -2,7 +2,7 @@
 Undergraduate Thesis: "Pastiche", an Android app for Neural Style Transfer.
 
 ## About
-Pastiche is an Android app created for my undergraduate thesis at Ontario Tech Univeristy (formerly UOIT). Pastiche allows users to merge the style of their favourite work of art to their pictures using a technique called neural style transfer. Pastiche also allows you to choose where you want the art style applied. It's as easy as finger painting! Enjoy.
+Pastiche is an Android app created for my undergraduate thesis at Ontario Tech Univeristy (formerly UOIT). Pastiche uses deep learning and allows users to merge the style of their favourite work of art to their pictures using a technique called neural style transfer. Pastiche also allows you to choose where you want the art style applied. It's as easy as finger painting! Enjoy.
 
 ## Installation
 1. Install Android Studio
@@ -12,7 +12,7 @@ Pastiche is an Android app created for my undergraduate thesis at Ontario Tech U
 5. Install and run the app
 
 ## Author
-Mir Afgan Talpur
+Mir Afgan Talpur \
 Supervisor: Dr. Faisal Qureshi
 
 ## Additional Credits
