@@ -10,7 +10,7 @@
     <string name="transfer_button_text">Style Transfer</string>
     <string name="style_transfer_instructions_style">Set Your Style!</string>
     <string name="style_transfer_instructions_transfer">Hit Style Transfer!</string>
-    <string name="style_transfer_loading">Creating Your Artwork...</string>
+    <string name="style_transfer_loading">Creating Pastiche...</string>
     <string name="style_transfer_instructions_again">Your Pastiche!</string>
     <string name="invert_switch">Invert   </string>
 
