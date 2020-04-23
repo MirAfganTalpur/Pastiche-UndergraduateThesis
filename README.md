@@ -19,5 +19,5 @@ Supervisor: Dr. Faisal Qureshi
 
 ## Additional Credits
 Style Transfer Networks: https://www.tensorflow.org/lite \
-Image Cropper: https://github.com/ArthurHub/Android-Image-Cropper
+Image Cropper: https://github.com/ArthurHub/Android-Image-Cropper \
 Canvas View: https://medium.com/@thoham.amir/basic-canvas-android-f60157410fcc
